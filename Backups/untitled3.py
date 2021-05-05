@@ -13,26 +13,22 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
     def setupUi(self, Form):
+        
         Form.setObjectName("Form")
-        Form.resize(1432, 811)
+        Form.resize(1390, 811)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
         Form.setSizePolicy(sizePolicy)
-        Form.setStyleSheet("")
-        self.uygulama = QtWidgets.QFrame(Form)
-        self.uygulama.setGeometry(QtCore.QRect(0, 0, 1391, 900))
-        self.uygulama.setStyleSheet("\n"
+        Form.setStyleSheet("QWidget{\n"
 "background:rgb(91,90,90);\n"
 "\n"
+"}\n"
 "\n"
 "")
-        self.uygulama.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.uygulama.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.uygulama.setObjectName("uygulama")
-        self.Sayfalar = QtWidgets.QStackedWidget(self.uygulama)
-        self.Sayfalar.setGeometry(QtCore.QRect(0, 95, 1381, 701))
+        self.Sayfalar = QtWidgets.QStackedWidget(Form)
+        self.Sayfalar.setGeometry(QtCore.QRect(10, 100, 1361, 701))
         self.Sayfalar.setObjectName("Sayfalar")
         self.sayfa1 = QtWidgets.QWidget()
         self.sayfa1.setObjectName("sayfa1")
@@ -50,47 +46,49 @@ class Ui_Form(object):
         self.tabConf = QtWidgets.QTabWidget(self.kontrolPaneli)
         self.tabConf.setMaximumSize(QtCore.QSize(400, 16777215))
         self.tabConf.setStyleSheet("\n"
+"\n"
 "QTabWidget::pane { /* The tab widget frame */\n"
-"   border:none;\n"
+"    border-top: 8px solid #C2C7CB;\n"
 "    \n"
 "}\n"
 "\n"
 "QTabWidget::tab-bar {\n"
-"border:2px solid white;\n"
-" left: 0px; /* move to the right by 5px */\n"
-"    right:0px;\n"
-"   \n"
+"    left: 0px; /* move to the right by 5px */\n"
 "}\n"
 "\n"
 "/* Style the tab using the tab sub-control. Note that\n"
 "    it reads QTabBar _not_ QTabWidget */\n"
 "QTabBar::tab {\n"
-"    text-align:center;\n"
-"   margin-right:5px;\n"
-"    border: 1px solid white  ;\n"
-"  height:40px;\n"
-"    font:12px;\n"
-"     width:130px;\n"
-"    min-width: 10ex;\n"
-"    padding: 0px;\n"
+"    \n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 4px solid #C4C4C3;\n"
+"    border-bottom-color: black; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"    min-width: 8ex;\n"
+"    padding: 2px;\n"
 "    color:white;\n"
 "    background-color:rgb(5, 1, 15);\n"
 "}\n"
 "\n"
 "QTabBar::tab:selected, QTabBar::tab:hover {\n"
-"\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
 "    color:white;\n"
 "    background-color:rgb(5, 1, 15);\n"
 "}\n"
 "\n"
 "QTabBar::tab:selected {\n"
-"    border-color: gray;\n"
-"background:gray;\n"
-"color:black;\n"
+"    border-color: #9B9B9B;\n"
 "    border-bottom-color: black; /* same as pane color */\n"
-"\n"
 "}\n"
 "\n"
+"QTabBar::tab:!selected {\n"
+"    margin-top: 2px; /* make non-selected tabs look smaller */\n"
+"}\n"
 "")
         self.tabConf.setObjectName("tabConf")
         self.tab_Configure = QtWidgets.QWidget()
@@ -153,8 +151,8 @@ class Ui_Form(object):
 "color: rgb(0, 0, 0);\n"
 "font: 75 8pt \"MS Shell Dlg 2\";")
         self.label_8.setObjectName("label_8")
-        self.line_cylinder_default = QtWidgets.QLineEdit(self.frame)
-        self.line_cylinder_default.setGeometry(QtCore.QRect(103, 177, 151, 16))
+        self.Line_ExhaustTemp = QtWidgets.QLineEdit(self.frame)
+        self.Line_ExhaustTemp.setGeometry(QtCore.QRect(103, 177, 151, 16))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -183,11 +181,11 @@ class Ui_Form(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        self.line_cylinder_default.setPalette(palette)
-        self.line_cylinder_default.setAutoFillBackground(False)
-        self.line_cylinder_default.setStyleSheet("background-color:white;\n"
+        self.Line_ExhaustTemp.setPalette(palette)
+        self.Line_ExhaustTemp.setAutoFillBackground(False)
+        self.Line_ExhaustTemp.setStyleSheet("background-color:white;\n"
 "border-radius:4px;")
-        self.line_cylinder_default.setObjectName("line_cylinder_default")
+        self.Line_ExhaustTemp.setObjectName("Line_ExhaustTemp")
         self.Line_SeaTemp = QtWidgets.QLineEdit(self.frame)
         self.Line_SeaTemp.setGeometry(QtCore.QRect(103, 151, 151, 16))
         palette = QtGui.QPalette()
@@ -771,7 +769,7 @@ class Ui_Form(object):
 "}")
         self.Tab_Conf.setObjectName("Tab_Conf")
         self.frame_SeaWaterPump_2 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_2.setGeometry(QtCore.QRect(20, 80, 211, 161))
+        self.frame_SeaWaterPump_2.setGeometry(QtCore.QRect(30, 20, 211, 161))
         self.frame_SeaWaterPump_2.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -779,31 +777,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_2.setObjectName("frame_SeaWaterPump_2")
         self.label_13 = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
-        self.label_13.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_13.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_13.setObjectName("label_13")
         self.label_14 = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
-        self.label_14.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_14.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_14.setObjectName("label_14")
-        self.lab_c1 = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
-        self.lab_c1.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c1.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c1.setText("")
-        self.lab_c1.setObjectName("lab_c1")
+        self.pushButton_3 = QtWidgets.QPushButton(self.frame_SeaWaterPump_2)
+        self.pushButton_3.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_3.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_4 = QtWidgets.QPushButton(self.frame_SeaWaterPump_2)
+        self.pushButton_4.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_4.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.label_33 = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
+        self.label_33.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_33.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_33.setText("")
+        self.label_33.setObjectName("label_33")
         self.label_35 = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
-        self.label_35.setGeometry(QtCore.QRect(30, 10, 101, 20))
+        self.label_35.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_35.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_35.setObjectName("label_35")
-        self.line_c1 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_2)
-        self.line_c1.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c1.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c1.setObjectName("line_c1")
-        self.lab_icon = QtWidgets.QLabel(self.frame_SeaWaterPump_2)
-        self.lab_icon.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon.setText("")
-        self.lab_icon.setScaledContents(True)
-        self.lab_icon.setObjectName("lab_icon")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_2)
+        self.lineEdit_2.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_2.setObjectName("lineEdit_2")
         self.frame_SeaWaterPump_4 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_4.setGeometry(QtCore.QRect(20, 280, 211, 161))
+        self.frame_SeaWaterPump_4.setGeometry(QtCore.QRect(30, 220, 211, 161))
         self.frame_SeaWaterPump_4.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -811,31 +812,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_4.setObjectName("frame_SeaWaterPump_4")
         self.label_17 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
-        self.label_17.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_17.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_17.setObjectName("label_17")
         self.label_18 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
-        self.label_18.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_18.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_18.setObjectName("label_18")
-        self.lab_c4 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
-        self.lab_c4.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c4.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c4.setText("")
-        self.lab_c4.setObjectName("lab_c4")
+        self.pushButton_7 = QtWidgets.QPushButton(self.frame_SeaWaterPump_4)
+        self.pushButton_7.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_7.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_7.setObjectName("pushButton_7")
+        self.pushButton_8 = QtWidgets.QPushButton(self.frame_SeaWaterPump_4)
+        self.pushButton_8.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_8.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_8.setObjectName("pushButton_8")
+        self.label_42 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
+        self.label_42.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_42.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_42.setText("")
+        self.label_42.setObjectName("label_42")
         self.label_43 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
         self.label_43.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_43.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_43.setObjectName("label_43")
-        self.line_c4 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_4)
-        self.line_c4.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c4.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c4.setObjectName("line_c4")
-        self.lab_icon_4 = QtWidgets.QLabel(self.frame_SeaWaterPump_4)
-        self.lab_icon_4.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_4.setText("")
-        self.lab_icon_4.setScaledContents(True)
-        self.lab_icon_4.setObjectName("lab_icon_4")
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_4)
+        self.lineEdit_5.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_5.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_5.setObjectName("lineEdit_5")
         self.frame_SeaWaterPump_3 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_3.setGeometry(QtCore.QRect(280, 80, 211, 161))
+        self.frame_SeaWaterPump_3.setGeometry(QtCore.QRect(290, 20, 211, 161))
         self.frame_SeaWaterPump_3.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -843,31 +847,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_3.setObjectName("frame_SeaWaterPump_3")
         self.label_15 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
-        self.label_15.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_15.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_15.setObjectName("label_15")
         self.label_16 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
-        self.label_16.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_16.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_16.setObjectName("label_16")
-        self.lab_c2 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
-        self.lab_c2.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c2.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c2.setText("")
-        self.lab_c2.setObjectName("lab_c2")
+        self.pushButton_5 = QtWidgets.QPushButton(self.frame_SeaWaterPump_3)
+        self.pushButton_5.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_5.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_6 = QtWidgets.QPushButton(self.frame_SeaWaterPump_3)
+        self.pushButton_6.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_6.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_6.setObjectName("pushButton_6")
+        self.label_36 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
+        self.label_36.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_36.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_36.setText("")
+        self.label_36.setObjectName("label_36")
         self.label_37 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
         self.label_37.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_37.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_37.setObjectName("label_37")
-        self.line_c2 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_3)
-        self.line_c2.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c2.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c2.setObjectName("line_c2")
-        self.lab_icon_2 = QtWidgets.QLabel(self.frame_SeaWaterPump_3)
-        self.lab_icon_2.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_2.setText("")
-        self.lab_icon_2.setScaledContents(True)
-        self.lab_icon_2.setObjectName("lab_icon_2")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_3)
+        self.lineEdit_4.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_4.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_4.setObjectName("lineEdit_4")
         self.frame_SeaWaterPump_5 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_5.setGeometry(QtCore.QRect(280, 280, 211, 161))
+        self.frame_SeaWaterPump_5.setGeometry(QtCore.QRect(290, 220, 211, 161))
         self.frame_SeaWaterPump_5.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -875,31 +882,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_5.setObjectName("frame_SeaWaterPump_5")
         self.label_19 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
-        self.label_19.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_19.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_19.setObjectName("label_19")
         self.label_20 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
-        self.label_20.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_20.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_20.setObjectName("label_20")
-        self.lab_c5 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
-        self.lab_c5.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c5.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c5.setText("")
-        self.lab_c5.setObjectName("lab_c5")
+        self.pushButton_11 = QtWidgets.QPushButton(self.frame_SeaWaterPump_5)
+        self.pushButton_11.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_11.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_11.setObjectName("pushButton_11")
+        self.pushButton_12 = QtWidgets.QPushButton(self.frame_SeaWaterPump_5)
+        self.pushButton_12.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_12.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.label_44 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
+        self.label_44.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_44.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_44.setText("")
+        self.label_44.setObjectName("label_44")
         self.label_45 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
         self.label_45.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_45.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_45.setObjectName("label_45")
-        self.line_c5 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_5)
-        self.line_c5.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c5.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c5.setObjectName("line_c5")
-        self.lab_icon_5 = QtWidgets.QLabel(self.frame_SeaWaterPump_5)
-        self.lab_icon_5.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_5.setText("")
-        self.lab_icon_5.setScaledContents(True)
-        self.lab_icon_5.setObjectName("lab_icon_5")
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_5)
+        self.lineEdit_6.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_6.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_6.setObjectName("lineEdit_6")
         self.frame_SeaWaterPump_6 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_6.setGeometry(QtCore.QRect(540, 280, 211, 161))
+        self.frame_SeaWaterPump_6.setGeometry(QtCore.QRect(550, 220, 211, 161))
         self.frame_SeaWaterPump_6.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -907,31 +917,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_6.setObjectName("frame_SeaWaterPump_6")
         self.label_21 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
-        self.label_21.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_21.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_21.setObjectName("label_21")
         self.label_22 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
-        self.label_22.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_22.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_22.setObjectName("label_22")
-        self.lab_c6 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
-        self.lab_c6.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c6.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c6.setText("")
-        self.lab_c6.setObjectName("lab_c6")
+        self.pushButton_13 = QtWidgets.QPushButton(self.frame_SeaWaterPump_6)
+        self.pushButton_13.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_13.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_13.setObjectName("pushButton_13")
+        self.pushButton_14 = QtWidgets.QPushButton(self.frame_SeaWaterPump_6)
+        self.pushButton_14.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_14.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_14.setObjectName("pushButton_14")
+        self.label_46 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
+        self.label_46.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_46.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_46.setText("")
+        self.label_46.setObjectName("label_46")
         self.label_47 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
         self.label_47.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_47.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_47.setObjectName("label_47")
-        self.line_c6 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_6)
-        self.line_c6.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c6.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c6.setObjectName("line_c6")
-        self.lab_icon_6 = QtWidgets.QLabel(self.frame_SeaWaterPump_6)
-        self.lab_icon_6.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_6.setText("")
-        self.lab_icon_6.setScaledContents(True)
-        self.lab_icon_6.setObjectName("lab_icon_6")
+        self.lineEdit_7 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_6)
+        self.lineEdit_7.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_7.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_7.setObjectName("lineEdit_7")
         self.frame_SeaWaterPump_7 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_7.setGeometry(QtCore.QRect(540, 80, 211, 161))
+        self.frame_SeaWaterPump_7.setGeometry(QtCore.QRect(550, 20, 211, 161))
         self.frame_SeaWaterPump_7.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -939,31 +952,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_7.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_7.setObjectName("frame_SeaWaterPump_7")
         self.label_23 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
-        self.label_23.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_23.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_23.setObjectName("label_23")
         self.label_24 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
-        self.label_24.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_24.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_24.setObjectName("label_24")
-        self.lab_c3 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
-        self.lab_c3.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c3.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c3.setText("")
-        self.lab_c3.setObjectName("lab_c3")
+        self.pushButton_15 = QtWidgets.QPushButton(self.frame_SeaWaterPump_7)
+        self.pushButton_15.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_15.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_15.setObjectName("pushButton_15")
+        self.pushButton_16 = QtWidgets.QPushButton(self.frame_SeaWaterPump_7)
+        self.pushButton_16.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_16.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_16.setObjectName("pushButton_16")
+        self.label_48 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
+        self.label_48.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_48.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_48.setText("")
+        self.label_48.setObjectName("label_48")
         self.label_49 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
         self.label_49.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_49.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_49.setObjectName("label_49")
-        self.line_c3 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_7)
-        self.line_c3.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c3.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c3.setObjectName("line_c3")
-        self.lab_icon_3 = QtWidgets.QLabel(self.frame_SeaWaterPump_7)
-        self.lab_icon_3.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_3.setText("")
-        self.lab_icon_3.setScaledContents(True)
-        self.lab_icon_3.setObjectName("lab_icon_3")
+        self.lineEdit_8 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_7)
+        self.lineEdit_8.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_8.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_8.setObjectName("lineEdit_8")
         self.frame_SeaWaterPump_8 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_8.setGeometry(QtCore.QRect(20, 480, 211, 161))
+        self.frame_SeaWaterPump_8.setGeometry(QtCore.QRect(30, 420, 211, 161))
         self.frame_SeaWaterPump_8.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -971,31 +987,34 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_8.setObjectName("frame_SeaWaterPump_8")
         self.label_50 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
-        self.label_50.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_50.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_50.setObjectName("label_50")
         self.label_51 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
-        self.label_51.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_51.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_51.setObjectName("label_51")
-        self.lab_c7 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
-        self.lab_c7.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c7.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c7.setText("")
-        self.lab_c7.setObjectName("lab_c7")
+        self.pushButton_17 = QtWidgets.QPushButton(self.frame_SeaWaterPump_8)
+        self.pushButton_17.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_17.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_17.setObjectName("pushButton_17")
+        self.pushButton_18 = QtWidgets.QPushButton(self.frame_SeaWaterPump_8)
+        self.pushButton_18.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_18.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_18.setObjectName("pushButton_18")
+        self.label_52 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
+        self.label_52.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_52.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_52.setText("")
+        self.label_52.setObjectName("label_52")
         self.label_53 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
         self.label_53.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_53.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_53.setObjectName("label_53")
-        self.line_c7 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_8)
-        self.line_c7.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c7.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c7.setObjectName("line_c7")
-        self.lab_icon_7 = QtWidgets.QLabel(self.frame_SeaWaterPump_8)
-        self.lab_icon_7.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_7.setText("")
-        self.lab_icon_7.setScaledContents(True)
-        self.lab_icon_7.setObjectName("lab_icon_7")
+        self.lineEdit_9 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_8)
+        self.lineEdit_9.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_9.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_9.setObjectName("lineEdit_9")
         self.frame_SeaWaterPump_9 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_SeaWaterPump_9.setGeometry(QtCore.QRect(280, 480, 211, 161))
+        self.frame_SeaWaterPump_9.setGeometry(QtCore.QRect(290, 420, 211, 161))
         self.frame_SeaWaterPump_9.setStyleSheet("QFrame{\n"
 "    background-color:rgb(193, 193, 145) ;\n"
 "}")
@@ -1003,44 +1022,32 @@ class Ui_Form(object):
         self.frame_SeaWaterPump_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_SeaWaterPump_9.setObjectName("frame_SeaWaterPump_9")
         self.label_54 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
-        self.label_54.setGeometry(QtCore.QRect(130, 80, 47, 13))
+        self.label_54.setGeometry(QtCore.QRect(130, 50, 47, 13))
         self.label_54.setObjectName("label_54")
         self.label_55 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
-        self.label_55.setGeometry(QtCore.QRect(130, 120, 47, 13))
+        self.label_55.setGeometry(QtCore.QRect(130, 90, 47, 13))
         self.label_55.setObjectName("label_55")
-        self.lab_c8 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
-        self.lab_c8.setGeometry(QtCore.QRect(20, 80, 81, 21))
-        self.lab_c8.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.lab_c8.setText("")
-        self.lab_c8.setObjectName("lab_c8")
+        self.pushButton_19 = QtWidgets.QPushButton(self.frame_SeaWaterPump_9)
+        self.pushButton_19.setGeometry(QtCore.QRect(120, 120, 61, 31))
+        self.pushButton_19.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_19.setObjectName("pushButton_19")
+        self.pushButton_20 = QtWidgets.QPushButton(self.frame_SeaWaterPump_9)
+        self.pushButton_20.setGeometry(QtCore.QRect(10, 120, 61, 31))
+        self.pushButton_20.setStyleSheet("background-color: rgb(17, 255, 92);")
+        self.pushButton_20.setObjectName("pushButton_20")
+        self.label_56 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
+        self.label_56.setGeometry(QtCore.QRect(20, 50, 81, 21))
+        self.label_56.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.label_56.setText("")
+        self.label_56.setObjectName("label_56")
         self.label_57 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
         self.label_57.setGeometry(QtCore.QRect(40, 10, 141, 20))
         self.label_57.setStyleSheet("font: 75 12pt \"Times New Roman\";")
         self.label_57.setObjectName("label_57")
-        self.line_c8 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_9)
-        self.line_c8.setGeometry(QtCore.QRect(20, 119, 81, 21))
-        self.line_c8.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.line_c8.setObjectName("line_c8")
-        self.lab_icon_8 = QtWidgets.QLabel(self.frame_SeaWaterPump_9)
-        self.lab_icon_8.setGeometry(QtCore.QRect(20, 40, 33, 33))
-        self.lab_icon_8.setText("")
-        self.lab_icon_8.setScaledContents(True)
-        self.lab_icon_8.setObjectName("lab_icon_8")
-        self.frame_3 = QtWidgets.QFrame(self.Tab_Conf)
-        self.frame_3.setGeometry(QtCore.QRect(0, 0, 951, 61))
-        self.frame_3.setStyleSheet("background-color: rgb(85, 0, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.savebn_c1 = QtWidgets.QPushButton(self.frame_3)
-        self.savebn_c1.setGeometry(QtCore.QRect(340, 20, 61, 31))
-        self.savebn_c1.setStyleSheet("background-color: rgb(17, 255, 92);")
-        self.savebn_c1.setObjectName("savebn_c1")
-        self.testbn_c1 = QtWidgets.QPushButton(self.frame_3)
-        self.testbn_c1.setGeometry(QtCore.QRect(410, 20, 61, 31))
-        self.testbn_c1.setStyleSheet("background-color: rgb(17, 255, 92);")
-        self.testbn_c1.setObjectName("testbn_c1")
+        self.lineEdit_10 = QtWidgets.QLineEdit(self.frame_SeaWaterPump_9)
+        self.lineEdit_10.setGeometry(QtCore.QRect(20, 89, 81, 21))
+        self.lineEdit_10.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit_10.setObjectName("lineEdit_10")
         self.tabDesign.addTab(self.Tab_Conf, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setStyleSheet("QWidget{\n"
@@ -1144,25 +1151,10 @@ class Ui_Form(object):
         self.tab_6.setObjectName("tab_6")
         self.tabDesign.addTab(self.tab_6, "")
         self.tab_3 = QtWidgets.QWidget()
-        self.tab_3.setStyleSheet("QScrollBar\n"
-"{\n"
-"background : lightgreen;\n"
-"}\n"
-"QScrollBar::handle\n"
-"{\n"
-"background : white;\n"
-"}\n"
-"QScrollBar::handle::pressed\n"
-"{\n"
-"background : black;\n"
-"}\n"
-"QScrollBar::handle\n"
-"{\n"
-"background : black;\n"
-"}")
+        self.tab_3.setStyleSheet("")
         self.tab_3.setObjectName("tab_3")
         self.listWidget = QtWidgets.QListWidget(self.tab_3)
-        self.listWidget.setGeometry(QtCore.QRect(0, 61, 941, 801))
+        self.listWidget.setGeometry(QtCore.QRect(0, 1, 1001, 861))
         self.listWidget.setStyleSheet("QListWidget {\n"
 "    background-color: white;\n"
 "    color:green;\n"
@@ -1176,19 +1168,17 @@ class Ui_Form(object):
 "    \n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0 #6a6ea9, stop: 1 #888dd9);\n"
-"}\n"
-"")
+"}")
         self.listWidget.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.listWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.listWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
         self.listWidget.setAutoScroll(False)
         self.listWidget.setProperty("showDropIndicator", True)
         self.listWidget.setDragDropMode(QtWidgets.QAbstractItemView.NoDragDrop)
-        self.listWidget.setDefaultDropAction(QtCore.Qt.CopyAction)
+        self.listWidget.setDefaultDropAction(QtCore.Qt.TargetMoveAction)
         self.listWidget.setAlternatingRowColors(True)
         self.listWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.listWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.listWidget.setIconSize(QtCore.QSize(0, 0))
         self.listWidget.setFlow(QtWidgets.QListView.TopToBottom)
         self.listWidget.setLayoutMode(QtWidgets.QListView.SinglePass)
         self.listWidget.setViewMode(QtWidgets.QListView.ListMode)
@@ -1196,30 +1186,14 @@ class Ui_Form(object):
         self.listWidget.setObjectName("listWidget")
         item = QtWidgets.QListWidgetItem()
         self.listWidget.addItem(item)
-        self.frame_6 = QtWidgets.QFrame(self.tab_3)
-        self.frame_6.setGeometry(QtCore.QRect(0, 0, 951, 61))
-        self.frame_6.setStyleSheet("background-color: rgb(85, 0, 0);\n"
-"color: rgb(255, 255, 255);")
-        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_6.setObjectName("frame_6")
-        self.clean_list = QtWidgets.QPushButton(self.frame_6)
-        self.clean_list.setGeometry(QtCore.QRect(340, 20, 61, 31))
-        self.clean_list.setStyleSheet("background-color: rgb(17, 255, 92);")
-        self.clean_list.setObjectName("clean_list")
         self.tabDesign.addTab(self.tab_3, "")
         self.Sayfalar.addWidget(self.sayfa1)
         self.sayfa2 = QtWidgets.QWidget()
-        self.sayfa2.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.sayfa2.setObjectName("sayfa2")
-        self.textBrowser = QtWidgets.QTextBrowser(self.sayfa2)
-        self.textBrowser.setGeometry(QtCore.QRect(5, 1, 1351, 611))
-        self.textBrowser.setStyleSheet("border:0px;")
-        self.textBrowser.setObjectName("textBrowser")
         self.Sayfalar.addWidget(self.sayfa2)
-        self.Ust = QtWidgets.QFrame(self.uygulama)
+        self.Ust = QtWidgets.QFrame(Form)
         self.Ust.setEnabled(True)
-        self.Ust.setGeometry(QtCore.QRect(0, 0, 1381, 91))
+        self.Ust.setGeometry(QtCore.QRect(0, 0, 1371, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1239,7 +1213,7 @@ class Ui_Form(object):
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
         self.textBrowser_2 = QtWidgets.QTextBrowser(self.frame_5)
-        self.textBrowser_2.setGeometry(QtCore.QRect(50, 0, 361, 71))
+        self.textBrowser_2.setGeometry(QtCore.QRect(50, 0, 511, 71))
         self.textBrowser_2.setMaximumSize(QtCore.QSize(800, 16777215))
         self.textBrowser_2.setFocusPolicy(QtCore.Qt.NoFocus)
         self.textBrowser_2.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
@@ -1252,32 +1226,6 @@ class Ui_Form(object):
         self.textBrowser_2.setLineWidth(2)
         self.textBrowser_2.setOpenLinks(False)
         self.textBrowser_2.setObjectName("textBrowser_2")
-        self.bn_hakkinda = QtWidgets.QPushButton(self.frame_5)
-        self.bn_hakkinda.setGeometry(QtCore.QRect(440, 0, 91, 71))
-        self.bn_hakkinda.setContextMenuPolicy(QtCore.Qt.PreventContextMenu)
-        self.bn_hakkinda.setAutoFillBackground(False)
-        self.bn_hakkinda.setStyleSheet("\n"
-"color: rgb(255, 255, 255);\n"
-"font: 90 15pt \"MS Shell Dlg 2\";\n"
-"border:0px;\n"
-"")
-        self.bn_hakkinda.setAutoDefault(False)
-        self.bn_hakkinda.setDefault(False)
-        self.bn_hakkinda.setFlat(False)
-        self.bn_hakkinda.setObjectName("bn_hakkinda")
-        self.bn_monitor = QtWidgets.QPushButton(self.frame_5)
-        self.bn_monitor.setGeometry(QtCore.QRect(540, 0, 91, 71))
-        self.bn_monitor.setContextMenuPolicy(QtCore.Qt.PreventContextMenu)
-        self.bn_monitor.setAutoFillBackground(False)
-        self.bn_monitor.setStyleSheet("\n"
-"color: rgb(255, 255, 255);\n"
-"font: 90 15pt \"MS Shell Dlg 2\";\n"
-"border:0px;\n"
-"")
-        self.bn_monitor.setAutoDefault(False)
-        self.bn_monitor.setDefault(False)
-        self.bn_monitor.setFlat(False)
-        self.bn_monitor.setObjectName("bn_monitor")
         self.horizontalLayout_2.addWidget(self.frame_5)
         self.ufalt_2 = QtWidgets.QFrame(self.Ust)
         self.ufalt_2.setMinimumSize(QtCore.QSize(50, 50))
@@ -1286,9 +1234,9 @@ class Ui_Form(object):
         self.ufalt_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.ufalt_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.ufalt_2.setObjectName("ufalt_2")
-        self.bn_min = QtWidgets.QPushButton(self.ufalt_2)
-        self.bn_min.setGeometry(QtCore.QRect(0, 0, 50, 50))
-        self.bn_min.setStyleSheet("QPushButton {\n"
+        self.pushButton_24 = QtWidgets.QPushButton(self.ufalt_2)
+        self.pushButton_24.setGeometry(QtCore.QRect(0, 0, 50, 50))
+        self.pushButton_24.setStyleSheet("QPushButton {\n"
 "    border: none;\n"
 "    background-color: rgba(0,0,0,0);\n"
 "}\n"
@@ -1299,12 +1247,12 @@ class Ui_Form(object):
 "    background-color: rgba(0,0,0,0);\n"
 "}\n"
 "")
-        self.bn_min.setText("")
+        self.pushButton_24.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../../Main Project/Assests/hideAsset 53.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.bn_min.setIcon(icon)
-        self.bn_min.setIconSize(QtCore.QSize(50, 50))
-        self.bn_min.setObjectName("bn_min")
+        self.pushButton_24.setIcon(icon)
+        self.pushButton_24.setIconSize(QtCore.QSize(50, 50))
+        self.pushButton_24.setObjectName("pushButton_24")
         self.horizontalLayout_2.addWidget(self.ufalt_2)
         self.buyut_2 = QtWidgets.QFrame(self.Ust)
         self.buyut_2.setMinimumSize(QtCore.QSize(50, 50))
@@ -1313,10 +1261,10 @@ class Ui_Form(object):
         self.buyut_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.buyut_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.buyut_2.setObjectName("buyut_2")
-        self.bn_expand = QtWidgets.QPushButton(self.buyut_2)
-        self.bn_expand.setGeometry(QtCore.QRect(0, 0, 50, 50))
-        self.bn_expand.setAutoFillBackground(False)
-        self.bn_expand.setStyleSheet("QPushButton {\n"
+        self.pushButton_25 = QtWidgets.QPushButton(self.buyut_2)
+        self.pushButton_25.setGeometry(QtCore.QRect(0, 0, 50, 50))
+        self.pushButton_25.setAutoFillBackground(False)
+        self.pushButton_25.setStyleSheet("QPushButton {\n"
 "    border: none;\n"
 "    background-color: rgba(0,0,0,0);\n"
 "}\n"
@@ -1326,12 +1274,12 @@ class Ui_Form(object):
 "QPushButton:pressed {    \n"
 "    background-color: rgba(0,0,0,0);\n"
 "}")
-        self.bn_expand.setText("")
+        self.pushButton_25.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("../../Main Project/Assests/max.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.bn_expand.setIcon(icon1)
-        self.bn_expand.setIconSize(QtCore.QSize(50, 50))
-        self.bn_expand.setObjectName("bn_expand")
+        self.pushButton_25.setIcon(icon1)
+        self.pushButton_25.setIconSize(QtCore.QSize(50, 50))
+        self.pushButton_25.setObjectName("pushButton_25")
         self.horizontalLayout_2.addWidget(self.buyut_2)
         self.kapat_2 = QtWidgets.QFrame(self.Ust)
         self.kapat_2.setMinimumSize(QtCore.QSize(50, 50))
@@ -1342,9 +1290,9 @@ class Ui_Form(object):
         self.kapat_2.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.kapat_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.kapat_2.setObjectName("kapat_2")
-        self.bn_close = QtWidgets.QPushButton(self.kapat_2)
-        self.bn_close.setGeometry(QtCore.QRect(0, 0, 50, 50))
-        self.bn_close.setStyleSheet("QPushButton {\n"
+        self.pushButton_26 = QtWidgets.QPushButton(self.kapat_2)
+        self.pushButton_26.setGeometry(QtCore.QRect(0, 0, 50, 50))
+        self.pushButton_26.setStyleSheet("QPushButton {\n"
 "    border: none;\n"
 "    background-color: rgba(0,0,0,0);\n"
 "}\n"
@@ -1354,12 +1302,12 @@ class Ui_Form(object):
 "QPushButton:pressed {    \n"
 "    background-color: rgba(0,0,0,0);\n"
 "}")
-        self.bn_close.setText("")
+        self.pushButton_26.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("../../Main Project/Assests/closeAsset 43.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.bn_close.setIcon(icon2)
-        self.bn_close.setIconSize(QtCore.QSize(50, 50))
-        self.bn_close.setObjectName("bn_close")
+        self.pushButton_26.setIcon(icon2)
+        self.pushButton_26.setIconSize(QtCore.QSize(50, 50))
+        self.pushButton_26.setObjectName("pushButton_26")
         self.horizontalLayout_2.addWidget(self.kapat_2)
 
         self.retranslateUi(Form)
@@ -1393,38 +1341,44 @@ class Ui_Form(object):
         self.tabConf.setTabText(self.tabConf.indexOf(self.tab_SerialSettings), _translate("Form", "Serial Settings"))
         self.label_13.setText(_translate("Form", "Live Data"))
         self.label_14.setText(_translate("Form", "Deviation"))
+        self.pushButton_3.setText(_translate("Form", "Test"))
+        self.pushButton_4.setText(_translate("Form", "Save "))
         self.label_35.setText(_translate("Form", "CYLINDER 1"))
-        self.line_c1.setText(_translate("Form", "0"))
         self.label_17.setText(_translate("Form", "Live Data"))
         self.label_18.setText(_translate("Form", "Deviation"))
+        self.pushButton_7.setText(_translate("Form", "Test"))
+        self.pushButton_8.setText(_translate("Form", "Save "))
         self.label_43.setText(_translate("Form", "CYLINDER 4"))
-        self.line_c4.setText(_translate("Form", "0"))
         self.label_15.setText(_translate("Form", "Live Data"))
         self.label_16.setText(_translate("Form", "Deviation"))
+        self.pushButton_5.setText(_translate("Form", "Test"))
+        self.pushButton_6.setText(_translate("Form", "Save "))
         self.label_37.setText(_translate("Form", "CYLINDER 2"))
-        self.line_c2.setText(_translate("Form", "0"))
         self.label_19.setText(_translate("Form", "Live Data"))
         self.label_20.setText(_translate("Form", "Deviation"))
+        self.pushButton_11.setText(_translate("Form", "Test"))
+        self.pushButton_12.setText(_translate("Form", "Save "))
         self.label_45.setText(_translate("Form", "CYLINDER 5"))
-        self.line_c5.setText(_translate("Form", "0"))
         self.label_21.setText(_translate("Form", "Live Data"))
         self.label_22.setText(_translate("Form", "Deviation"))
+        self.pushButton_13.setText(_translate("Form", "Test"))
+        self.pushButton_14.setText(_translate("Form", "Save "))
         self.label_47.setText(_translate("Form", "CYLINDER 6"))
-        self.line_c6.setText(_translate("Form", "0"))
         self.label_23.setText(_translate("Form", "Live Data"))
         self.label_24.setText(_translate("Form", "Deviation"))
+        self.pushButton_15.setText(_translate("Form", "Test"))
+        self.pushButton_16.setText(_translate("Form", "Save "))
         self.label_49.setText(_translate("Form", "CYLINDER 3"))
-        self.line_c3.setText(_translate("Form", "0"))
         self.label_50.setText(_translate("Form", "Live Data"))
         self.label_51.setText(_translate("Form", "Deviation"))
+        self.pushButton_17.setText(_translate("Form", "Test"))
+        self.pushButton_18.setText(_translate("Form", "Save "))
         self.label_53.setText(_translate("Form", "CYLINDER 7"))
-        self.line_c7.setText(_translate("Form", "0"))
         self.label_54.setText(_translate("Form", "Live Data"))
         self.label_55.setText(_translate("Form", "Deviation"))
+        self.pushButton_19.setText(_translate("Form", "Test"))
+        self.pushButton_20.setText(_translate("Form", "Save "))
         self.label_57.setText(_translate("Form", "CYLINDER 8"))
-        self.line_c8.setText(_translate("Form", "0"))
-        self.savebn_c1.setText(_translate("Form", "Save "))
-        self.testbn_c1.setText(_translate("Form", "Test"))
         self.tabDesign.setTabText(self.tabDesign.indexOf(self.Tab_Conf), _translate("Form", "Main Engine"))
         self.label_11.setText(_translate("Form", "Live Data"))
         self.label_12.setText(_translate("Form", "Deviation"))
@@ -1445,31 +1399,13 @@ class Ui_Form(object):
         item = self.listWidget.item(0)
         item.setText(_translate("Form", "New Item"))
         self.listWidget.setSortingEnabled(__sortingEnabled)
-        self.clean_list.setText(_translate("Form", "Clean Logs"))
         self.tabDesign.setTabText(self.tabDesign.indexOf(self.tab_3), _translate("Form", "Monitoring Alerts"))
-        self.textBrowser.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Bu program </span><span style=\" font-size:14pt; color:#ff0000;\">Dokuz Eylül Gemi Makineleri İşletme Mühendisi</span><span style=\" font-size:14pt;\"> öğrencisi tarafından 4. sınıf tez konusu olarak hazırlanmıştır.Temel amaç Gemilerde ön hata tespiti ve operatörü bu hata hakkında yönlendirmektir.Program herhangi bir ticari amaçla hazırlanmamış olup tamamen araştırma konusudur.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Temel Çalışma Prensibi :</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Arduniodan gelen verileri analiz edip aralık değerlerine</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\"> göre veritabanında karşılık gelen arıza bilgisini kullanıcıya iletir.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Çalıştırma:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">--&gt; Sol panelden makinelerin çalışma değerlerini girin </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">--&gt; Ardından her bir ekipmanın Deviation değerini belirtin</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p></body></html>"))
         self.textBrowser_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Fault Detection Model For Ships</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt; font-weight:600; color:#ffffff;\"><br /></p></body></html>"))
-        self.bn_hakkinda.setText(_translate("Form", "Hakkında"))
-        self.bn_monitor.setText(_translate("Form", "Monitör"))
 
 
 if __name__ == "__main__":
