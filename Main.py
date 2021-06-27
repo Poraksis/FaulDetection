@@ -75,10 +75,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.Cyl7 = 0
         self.Cyl8 = 0
         self.line_cylinder_default = 0
+        # seperator giriş değerleri
+        self.line_feedPump = 0
+        self.line_afterFilter = 0
+        self.line_sealWater = 0
+        self.line_openingWater = 0
+        self.line_inputSeperator = 0
+        self.line_closeWater = 0
+        self.line_cleanFuelOutput = 0
+        self.line_fuelTemperature = 0
+        #separator default değerleri
+        self.default_feedPump = 0
+        self.default_afterFilter = 0
+        self.default_sealWater = 0
+        self.default_openingWater = 0
+        self.default_inputSeperator = 0
+        self.default_closeWater = 0
+        self.default_cleanFuelOutput = 0
+        self.default_fuelTemperature = 0
+
         # ################serial port bindings#####################
         self.serial = QSerialPort()
         # self.serial.readyRead.connect(self.receive)
-        self.serial.setPortName("COM6")
+        self.serial.setPortName("COM4")
         self.serial.setBaudRate(9600)
         # ##########################DATABASE######################
         self.conn = sqlite3.connect('Alarms.db')
@@ -102,8 +121,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # item click eventleri listwidget üzerinden yapılabiliyor
         self.window_conf.ui.listWidget.itemDoubleClicked.connect(self.doubleClickItem)
 
-        # ################### PANEL  POMPA ###########################
+        # ################### PANEL  Cylinder ###########################
         self.window_conf.ui.savebn_c1.clicked.connect(self.ConfSettings)
+        # ################### PANEL  Seperators ###########################
+        self.window_conf.ui.savebn_c2.clicked.connect(self.ConfSettings)
         # #########################################################
         # Monitor ekranında gelen ilk çıktıyı yok etmek içinböyle bi yöntem kullandık program yüklenirken kaybolucak
         self.indexItem = 0
@@ -198,7 +219,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.item = self.window_conf.ui.listWidget.item(self.indexItem)  # isim alanına dikkat et
         self.item.setText(text)
         self.item.setIcon(QtGui.QIcon(self.icon_hint))
-        self.indexItem = 1+ self.indexItem
+        self.indexItem = 1 + self.indexItem
         
     def Deviation(self, a, b):
         # kendi adını verdiğim range fonksiyonu.
@@ -236,6 +257,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.window_conf.ui.lab_c6.setText(str(self.datalist[5]))
         self.window_conf.ui.lab_c7.setText(str(self.datalist[6]))
         self.window_conf.ui.lab_c8.setText(str(self.datalist[7]))
+        # Seperator label göstergeleri
+        self.window_conf.ui.line_feedPump_2.setText(str(self.datalist[8]))
+        self.window_conf.ui.line_afterFilter_2.setText(str(self.datalist[9]))
+        self.window_conf.ui.line_inputSeperator_2.setText(str(self.datalist[10]))
+        self.window_conf.ui.line_fuelTemperature_2.setText(str(self.datalist[11]))
+        self.window_conf.ui.line_sealWater_2.setText(str(self.datalist[12]))
+        self.window_conf.ui.line_cleanFuelOutput_2.setText(str(self.datalist[13]))
+        self.window_conf.ui.line_openingWater_2.setText(str(self.datalist[14]))
+        self.window_conf.ui.line_closeWater_2.setText(str(self.datalist[15]))
+
 
 
 if __name__ == "__main__":

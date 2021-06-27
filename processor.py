@@ -53,7 +53,14 @@ Ekipman isim alanları:
 
 
 
-
+feed pump out pressure   line_feedPump     line_afterFilter     line_sealWater   line_openingWater
+filter out pressure      line_inputSeperator          line_closeWater   line_cleanFuelOutput  line_fuelTemperature
+treeway valve out pressure
+opening water
+seal water
+close water
+clean fuel discgarge
+temperature seperator inlet side
 
 
 """
